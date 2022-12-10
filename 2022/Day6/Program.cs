@@ -2,7 +2,7 @@
 
 // Prompt link: https://adventofcode.com/2022/day/6
 // Part 1 Solution: 1300
-// Part 2 Solution: 
+// Part 2 Solution: 3986
 public class Program
 {
     static void Main(string[] args)
