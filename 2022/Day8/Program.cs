@@ -20,7 +20,7 @@ public class Program
             {
                 for (int y = 0; y < line.Length; y++)
                 {
-                    trees[x, y] = (int)line[y] - 48;
+                    trees[x, y] = line[y] - 48;
                 }
 
                 x++;
@@ -106,49 +106,36 @@ public class Program
         int currentTree = trees[row, col];
 
         int[] directionalScores = new int[4];
-        int scenicScore = 0;
 
         for (int tempRow = row - 1; tempRow >= 0; tempRow--)
         {
-            if (trees[tempRow, col] >= currentTree)
-            {
-                directionalScores[0]++;
-                break;
-            }
             directionalScores[0]++;
+
+            if (trees[tempRow, col] >= currentTree) break;
         }
 
         for (int tempCol = col + 1; tempCol <= size - 1; tempCol++)
         {
-            if (trees[row, tempCol] >= currentTree)
-            {
-                directionalScores[1]++;
-                break;
-            }
             directionalScores[1]++;
+
+            if (trees[row, tempCol] >= currentTree) break;
         }
 
         for (int tempRow = row + 1; tempRow <= size - 1; tempRow++)
         {
-            if (trees[tempRow, col] >= currentTree)
-            {
-                directionalScores[2]++;
-                break;
-            }
             directionalScores[2]++;
+
+            if (trees[tempRow, col] >= currentTree) break;
         }
 
         for (int tempCol = col - 1; tempCol >= 0; tempCol--)
         {
-            if (trees[row, tempCol] >= currentTree)
-            {
-                directionalScores[3]++;
-                break;
-            }
             directionalScores[3]++;
+
+            if (trees[row, tempCol] >= currentTree) break;
         }
 
-        scenicScore = directionalScores[0];
+        int scenicScore = directionalScores[0];
 
         for (int i = 1; i < directionalScores.Length; i++)
         {
